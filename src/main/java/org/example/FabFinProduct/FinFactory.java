@@ -1,4 +1,8 @@
-package org.example;
+package org.example.FabFinProduct;
+
+import org.example.FinProduct.AbstractFinProduct;
+import org.example.FinProduct.CreditProduct;
+import org.example.FinProduct.DepositProduct;
 
 public class FinFactory {
     public static AbstractFinProduct createFinProduct(String type, ProductParams params){

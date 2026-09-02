@@ -1,4 +1,4 @@
-package org.example;
+package org.example.FinProduct;
 
 public interface InterfaceFinProduct {
     String getNameProduct();

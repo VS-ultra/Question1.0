@@ -1,11 +1,11 @@
-package org.example;
+package org.example.FinProduct;
 
 import lombok.Getter;
 
 import java.util.UUID;
 
 @Getter
-public class DepositProduct extends  AbstractFinProduct{
+public class DepositProduct extends AbstractFinProduct {
     private final boolean replenishmenAllowed;
     private final String closureCondition;
 
