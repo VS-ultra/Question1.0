@@ -1,6 +1,7 @@
-package org.example.FinProduct;
+package org.example.service;
 
 import lombok.Getter;
+import org.example.DTO.AbstractFinProduct;
 
 import java.util.UUID;
 

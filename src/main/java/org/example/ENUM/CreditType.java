@@ -1,4 +1,4 @@
-package org.example.FinProduct;
+package org.example.ENUM;
 
 public enum CreditType {
     CONSUMER,

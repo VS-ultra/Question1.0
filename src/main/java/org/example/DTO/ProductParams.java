@@ -1,8 +1,8 @@
-package org.example.FabFinProduct;
+package org.example.DTO;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.example.FinProduct.CreditType;
+import org.example.ENUM.CreditType;
 
 
 import java.util.UUID;
@@ -21,6 +21,6 @@ public class ProductParams {
     private boolean hasCollateral;
     private String paymentSchedule;
     // Thats only deposit
-    private boolean replenishmenAllowed;
+    private boolean replenishmentAllowed;
     private String closureCondition;
 }

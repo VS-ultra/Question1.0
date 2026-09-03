@@ -1,4 +1,4 @@
-package org.example.ValidationRequest;
+package org.example.exception;
 
 public abstract class BusinessException extends  Exception {
     public  BusinessException(String message) {

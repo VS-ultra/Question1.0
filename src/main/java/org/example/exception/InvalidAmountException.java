@@ -1,4 +1,4 @@
-package org.example.ValidationRequest;
+package org.example.exception;
 
 import java.util.UUID;
 

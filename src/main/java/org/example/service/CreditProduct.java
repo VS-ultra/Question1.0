@@ -1,6 +1,8 @@
-package org.example.FinProduct;
+package org.example.service;
 
 import lombok.Getter;
+import org.example.DTO.AbstractFinProduct;
+import org.example.ENUM.CreditType;
 
 import java.util.UUID;
 @Getter

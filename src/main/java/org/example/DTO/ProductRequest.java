@@ -1,8 +1,11 @@
-package org.example.FabFinProduct;
+package org.example.DTO;
+
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Getter
 public class ProductRequest {
     //main fields
     private final UUID id;
@@ -23,35 +26,6 @@ public class ProductRequest {
         this.status = builder.status;
         this.createdAt = builder.createdAt;
     }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public UUID getClientId() {
-        return clientId;
-    }
-
-    public UUID getProductId() {
-        return productId;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public Integer getTermMonths() {
-        return termMonths;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
     public static Builder builder() {
         return new Builder();
     }

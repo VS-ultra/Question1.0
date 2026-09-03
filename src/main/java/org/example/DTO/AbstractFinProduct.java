@@ -1,4 +1,4 @@
-package org.example.FinProduct;
+package org.example.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
