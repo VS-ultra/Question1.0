@@ -1,12 +1,14 @@
-package org.example.DTO;
+package org.example.dto;
 
 import lombok.Getter;
+import org.example.ENUM.RequestStatus;
+import org.example.repository.Identifiable;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
-public class ProductRequest {
+public class ProductRequest implements Identifiable<UUID> {
     //main fields
     private final UUID id;
     private final UUID clientId;
@@ -14,7 +16,7 @@ public class ProductRequest {
     private final Double amount;
     // second fields
     private final Integer termMonths;
-    private final String status;
+    private final RequestStatus status;
     private final LocalDateTime createdAt;
 
     private ProductRequest(Builder builder) {
@@ -37,7 +39,7 @@ public class ProductRequest {
         private Double amount;
 
         private Integer termMonths;
-        private String status = "New";
+        private RequestStatus status = RequestStatus.NEW;
         private LocalDateTime createdAt = LocalDateTime.now();
 
         public Builder id(UUID id) {
@@ -65,7 +67,7 @@ public class ProductRequest {
             return this;
         }
 
-        public Builder status(String status) {
+        public Builder status(RequestStatus status) {
             this.status = status;
             return this;
         }

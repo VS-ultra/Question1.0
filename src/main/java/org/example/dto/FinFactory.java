@@ -1,14 +1,10 @@
-package org.example.service;
+package org.example.dto;
 
-import org.example.DTO.AbstractFinProduct;
-import org.example.DTO.ProductParams;
-import org.example.ENUM.CreditType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class FinFactory {
-
-    private static final Logger log = LoggerFactory.getLogger(FinFactory.class);
 
     public static AbstractFinProduct createFinProduct(String type, ProductParams params) {
         if (type == null) {
@@ -27,6 +23,7 @@ public class FinFactory {
                         params.getMinAmount(),
                         params.getMaxAmount(),
                         params.getCurrency(),
+                        params.getInterestRate(),
                         params.getCreditType(),
                         params.isHasCollateral(),
                         params.getPaymentSchedule()
@@ -41,6 +38,7 @@ public class FinFactory {
                         params.getMinAmount(),
                         params.getMaxAmount(),
                         params.getCurrency(),
+                        params.getInterestRate(),
                         params.isReplenishmentAllowed(),
                         params.getClosureCondition()
                 );

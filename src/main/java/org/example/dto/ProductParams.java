@@ -1,4 +1,4 @@
-package org.example.DTO;
+package org.example.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -16,6 +16,7 @@ public class ProductParams {
     private double minAmount;
     private double maxAmount;
     private String currency;
+    private double interestRate;
     // Thats only credit
     private CreditType creditType;
     private boolean hasCollateral;

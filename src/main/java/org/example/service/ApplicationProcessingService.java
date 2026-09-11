@@ -1,21 +1,20 @@
 package org.example.service;
 
 import lombok.Getter;
-import org.example.DTO.AbstractFinProduct;
-import org.example.DTO.ProductRequest;
+import lombok.extern.slf4j.Slf4j;
+import org.example.dto.AbstractFinProduct;
+import org.example.dto.ProductRequest;
 import org.example.exception.BusinessException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.example.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+@Slf4j
 @Getter
 public class ApplicationProcessingService {
-
-    private static final Logger log = LoggerFactory.getLogger(ApplicationProcessingService.class);
 
     private static final ApplicationProcessingService INSTANCE = new ApplicationProcessingService();
 
@@ -45,11 +44,11 @@ public class ApplicationProcessingService {
                 request.getId(), request.getProductId(), request.getAmount());
     }
 
-    private AbstractFinProduct findProductById(UUID productId) {
+    private AbstractFinProduct findProductById(UUID productId) throws NotFoundException {
         AbstractFinProduct product = products.get(productId);
         if (product == null) {
             log.error("Продукт не найден: productId={}", productId);
-            throw new IllegalArgumentException("Продукт с id=" + productId + " не найден");
+            throw new NotFoundException(productId);
         }
         return product;
     }

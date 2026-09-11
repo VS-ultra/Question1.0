@@ -1,7 +1,7 @@
 package org.example.service;
 
-import org.example.DTO.ProductRequest;
-import org.example.DTO.AbstractFinProduct;
+import org.example.dto.ProductRequest;
+import org.example.dto.AbstractFinProduct;
 import org.example.exception.BusinessException;
 import org.example.exception.InvalidAmountException;
 import org.example.exception.ProductNotActiveException;
@@ -16,7 +16,7 @@ public class RequestValidationService {
             checkAmountInRange(request, product);
             log.info("Request validated successfully: id={}, amount={}", request.getId(), request.getAmount());
         }catch (BusinessException e){
-            log.error("Request validation failed: id={}, amount={}", request.getId(), request.getAmount());
+            log.error("Request validation failed: id={}, amount={}", request.getId(), request.getAmount(), e);
             throw e;
         }
 
