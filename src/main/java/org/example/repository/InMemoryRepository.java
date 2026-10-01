@@ -1,20 +1,26 @@
 package org.example.repository;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class InMemoryRepository <T extends Identifiable<ID>, ID> implements Repository<T, ID>{
-    private final Map<ID, T> storage = new HashMap<>();
+    private final Map<ID, T> storage = new ConcurrentHashMap<>();
 
     @Override
     public T save(T entity) {
-        return storage.put(entity.getId(), entity);
+        Objects.requireNonNull(entity, "entity cannot be null");
+        Objects.requireNonNull(entity.getId(), "entity id cannot be null");
+        storage.put(entity.getId(), entity);
+        return entity;
     }
     @Override
     public T update(T entity) {
-        if (!storage.containsValue(entity.getId())){
-            throw new NoSuchElementException("Entity is not found by id: " + entity.getId() + " update unreachable");
+        Objects.requireNonNull(entity, "entity cannot be null");
+        T update = storage.computeIfPresent(entity.getId(), (id, old) -> entity);
+        if (update == null){
+            throw new NoSuchElementException("Entity is not found by id: " + entity.getId() + ", update unreachable");
         }
-        return storage.put(entity.getId(), entity);
+        return update;
     }
     @Override
     public boolean deleteById(ID id) {
@@ -38,3 +44,7 @@ public class InMemoryRepository <T extends Identifiable<ID>, ID> implements Repo
         return storage.size();
     }
 }
+
+
+
+

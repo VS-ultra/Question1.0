@@ -93,4 +93,15 @@ public class ProductRequest implements Identifiable<UUID> {
             return new ProductRequest(this);
         }
     }
+    public ProductRequest withStatus(RequestStatus newStatus){
+        return builder()
+                .id(id)
+                .clientId(clientId)
+                .productId(productId)
+                .amount(amount)
+                .termMonths(termMonths)
+                .status(newStatus)
+                .createdAt(createdAt)
+                .build();
+    }
 }
